@@ -5,6 +5,7 @@
 #   name    = "${var.instances[count.index]}.${var.domain_name}"
 #   type    = "A"
 #   ttl     = "1"
+# allow_overwrite = true
 # #   records = [aws_instance.roboshop[count.index].private_ip, aws_instance.roboshop[count.index].public_ip]
 #   records = [var.instances[count.index] == "frontend" ? aws_instance.roboshop[count.index].public_ip : aws_instance.roboshop[count.index].private_ip]
 # }
