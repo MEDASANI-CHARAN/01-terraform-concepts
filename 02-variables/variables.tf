@@ -1,3 +1,8 @@
+# string
+# list
+# map
+# boolean
+
 variable ami_id {
   type = string
   default = "ami-09c813fb71547fc4f"
@@ -5,7 +10,7 @@ variable ami_id {
 
 variable instance_type {
   type = string
-  default = "t2.micro"
+  default = "t3.micro"
 }
 
 variable ec2_tags {

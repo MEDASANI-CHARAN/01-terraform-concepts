@@ -27,4 +27,4 @@ resource "aws_security_group" "allow_everything" {
   }
 
   tags = var.sg_tags
-}
+} 
