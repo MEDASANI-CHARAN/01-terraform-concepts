@@ -7,7 +7,7 @@ resource "aws_instance" "roboshop" {
   tags = {
     Name = "HelloWorld"
   }
-}          
+}           
             #Type                  #Name
 resource "aws_security_group" "allow_everything" {
   name        = "allow_all"
