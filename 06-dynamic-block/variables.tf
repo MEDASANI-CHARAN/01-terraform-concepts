@@ -16,7 +16,7 @@ variable "instance_type" {
 # }
 
 variable "ec2_tags" {
-  type =  string
+  type    = string
   default = "HelloWorld"
 }
 
@@ -64,7 +64,7 @@ variable "sg_tags" {
 
 variable "common_tags" {
   default = {
-    Project = "roboshop"
+    Project   = "roboshop"
     Terraform = "true"
   }
 }

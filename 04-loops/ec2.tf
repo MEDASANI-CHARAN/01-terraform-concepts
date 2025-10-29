@@ -1,12 +1,12 @@
 resource "aws_instance" "roboshop" {
-  # count = 5
-  count = length(var.instances)
+  count = 3
+  # count = length(var.instances)
   ami           = var.ami_id
   instance_type = var.environment == "dev" ? "t2.micro" : "t2.small"
   vpc_security_group_ids = [aws_security_group.allow_everything.id]
 
   tags = {
-    Name = var.instances[count.index]
+    Name = var.instances[count.index] #index starts with 0, 1, 2 etc...
     }
 }
 

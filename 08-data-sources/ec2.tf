@@ -1,13 +1,13 @@
 resource "aws_instance" "roboshop" {
   # argument
-  ami           = "ami-09c813fb71547fc4f"
+  ami           = data.aws_ami.ami_id.id
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_everything.id]
 
   tags = {
     Name = "HelloWorld"
   }
-} 
+}
             #Type                  #Name
 resource "aws_security_group" "allow_everything" {
   name        = "allow_all"

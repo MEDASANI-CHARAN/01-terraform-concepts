@@ -6,7 +6,7 @@ variable "environment" {
     default = "dev"
 }
 
-variable "version" {
+variable "app_version" {
     default = "1.0"
 }
 
@@ -18,12 +18,13 @@ variable "common_tags"{
     default = {
         Project = "roboshop"
         Terraform = "true"
+        Version = "1.1"
     }
 }
 
 /* variable "final-name" {
     default = "${var.project}-${var.environment}-${var.component}"
-} */
+} */  # => variables not allowed inside variables 
 
 # ec2 name = cart
 # ec2 name = roboshop-dev-cart
@@ -49,6 +50,7 @@ variable ec2_tags {
   type = map # map(string)
   default = {
     Name = "HelloWorld"
+    Version = "1.2"
   }
 }
 
@@ -95,7 +97,7 @@ variable sg_tags {
 }
 
 variable "zone_id" {
-  default = "Z06794012YZ552T1IPKZA"
+  default = "Z079925038GKLPVTTRWKU"
 }
 
 variable "domain_name" {

@@ -1,6 +1,6 @@
 resource "aws_route53_record" "record" {
-    count = 3
-#   count = length(var.instances)
+    # count = 3
+  count = length(var.instances) ## length function
   zone_id = var.zone_id
   name    = "${var.instances[count.index]}.${var.domain_name}"
   type    = "A"

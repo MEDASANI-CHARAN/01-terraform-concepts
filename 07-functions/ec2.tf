@@ -1,15 +1,18 @@
 resource "aws_instance" "roboshop" {
-  for_each = var.instances   ## this also will work for tomap
-  # for_each = toset(var.instances)
-  # for_each = tomap(var.instances)
+  # count = 3
+  count = length(var.instances) ## length function
   ami           = var.ami_id
-  # instance_type = each.value
-  instance_type = "t2.micro"
+  instance_type = var.environment == "dev" ? "t2.micro" : "t2.small"
   vpc_security_group_ids = [aws_security_group.allow_everything.id]
 
-  tags = {
-    Name = each.key
+  tags = merge(
+    var.ec2_tags,
+    var.common_tags,
+    {
+      Name = var.instances[count.index] #index starts with 0, 1, 2 etc...
+      Component = var.instances[count.index]
     }
+  )
 }
 
 resource "aws_security_group" "allow_everything" {
@@ -32,5 +35,10 @@ resource "aws_security_group" "allow_everything" {
     ipv6_cidr_blocks = var.ipv6_cidr_blocks
   }
 
-  tags = var.sg_tags
+  tags = merge(
+    var.common_tags,
+    {
+      Name = var.sg_tags #index starts with 0, 1, 2 etc...
+    }
+  )
 }

@@ -1,7 +1,3 @@
-output "fina_name" {
-    value = local.fina_name
-}
-
-output "ec2_tags" {
-    value = local.ec2_tags
-}
+# output "ec2_instance_info" {
+#   value = aws_instance.roboshop
+# }

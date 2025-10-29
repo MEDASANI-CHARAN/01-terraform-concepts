@@ -3,9 +3,9 @@ resource "aws_instance" "roboshop" {
   count = length(var.instances)
   ami           = var.ami_id
   instance_type = local.instance_type
-  vpc_security_group_ids = [aws_security_group.allow_everything.id]
+  vpc_security_group_ids = local.sg_id
 
-  tags = local.ec2_tags
+  tags = local.ec2_tags[var.instances[count.index]]
 }
 
 resource "aws_security_group" "allow_everything" {
