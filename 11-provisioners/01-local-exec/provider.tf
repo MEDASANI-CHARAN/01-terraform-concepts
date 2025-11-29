@@ -6,8 +6,8 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "daws2025.online-remote-state"
-    key    = "remote-state-provisioners"
+    bucket = "daws2025.online-remote-bucket"
+    key    = "remote-state-local-provisioners"
     region = "us-east-1"
     encrypt      = true  
     use_lockfile = true  #S3 native locking

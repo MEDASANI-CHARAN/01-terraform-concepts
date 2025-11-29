@@ -7,9 +7,9 @@ terraform {
   }
   backend "s3" {
     bucket = "daws2025.online-remote-bucket"
-    key    = "remote-state-demo"
+    key    = "remote-state-remote-provisioners"
     region = "us-east-1"
-    encrypt      = true
+    encrypt      = true  
     use_lockfile = true  #S3 native locking
     # dynamodb_table = "daws2025.online-state"
   }
@@ -17,5 +17,4 @@ terraform {
 
 provider "aws" {
   # Configuration options
-  region = "us-east-1"
 }
